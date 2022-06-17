@@ -97,14 +97,22 @@
         tools:layout_editor_absoluteX="16dp" />
 
     <Button
+        android:id="@+id/button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
+        android:background="@drawable/radius"
         android:text="Login"
         android:textColor="@color/white"
         android:textSize="14dp"
-        android:background="@drawable/radius"
         app:layout_constraintTop_toBottomOf="@+id/textView3"
-        />
+        tools:layout_editor_absoluteX="16dp" />
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:text="Do not have an account?"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@+id/button" />
 </androidx.constraintlayout.widget.ConstraintLayout>
