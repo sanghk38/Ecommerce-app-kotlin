@@ -2,6 +2,7 @@ package com.example.ecommerce.Activity
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.EditText
 import android.widget.Toast
@@ -33,12 +34,12 @@ class MainActivity : AppCompatActivity() {
                 val sr: StringRequest = object :
                     StringRequest(Method.POST, Server.signin, Response.Listener { response ->
                         if (response.equals("success")) {
-                            val intent = Intent(this@MainActivity, HomeActivity::class.java)
+                            Log.d("sang", "hk")
+                            intent = Intent(this@MainActivity, HomeActivity::class.java)
                             startActivity(intent)
                         } else if (response.equals("failure")) {
                             Toast.makeText(
-                                this@MainActivity,
-                                "Mật khẩu bạn nhập không đúng",
+                                this@MainActivity, "Mật khẩu bạn nhập không đúng",
                                 Toast.LENGTH_LONG
                             ).show()
                         }

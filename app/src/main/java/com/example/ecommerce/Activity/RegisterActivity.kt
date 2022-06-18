@@ -14,15 +14,21 @@ import com.example.ecommerce.connect.Server
 import kotlinx.android.synthetic.main.activity_register.*
 
 class RegisterActivity : AppCompatActivity() {
+    private var email: String? = null
+    private var password: String? = null
+    private var name: String? = null
+    private var checkpass: String? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
-
-        bntRegister.setOnClickListener(View.OnClickListener {
+        name = "".also { checkpass = it }.also { password = it }.also { email = it }
+    }
+        fun save(view: View)  {
             var email = edEmail.text.toString().trim()
             var password = edPassword.text.toString().trim()
             var name = edName.text.toString().trim()
             var checkpass = edCheckPass.text.toString().trim()
+//            name = "".also { checkpass = it }.also { password = it }.also { email = it }
             if (!password.equals(checkpass)) {
                 Toast.makeText(this, "The password you entered is incorrect", Toast.LENGTH_LONG)
                     .show()
@@ -58,12 +64,14 @@ class RegisterActivity : AppCompatActivity() {
                 val requestQueue = Volley.newRequestQueue(applicationContext)
                 requestQueue.add<String>(sr)
             }
-        })
-    }
+        }
+
 
     fun login(view: View) {
         intent = Intent(this@RegisterActivity, MainActivity::class.java)
         startActivity(intent)
         finish()
     }
+
+
 }
