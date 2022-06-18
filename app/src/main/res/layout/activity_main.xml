@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".Activity.MainActivity">
 
     <TextView
         android:id="@+id/textView2"
@@ -114,5 +114,6 @@
         android:layout_marginTop="100dp"
         android:text="Do not have an account?"
         android:gravity="center"
+        android:onClick="register"
         app:layout_constraintTop_toBottomOf="@+id/button" />
 </androidx.constraintlayout.widget.ConstraintLayout>
