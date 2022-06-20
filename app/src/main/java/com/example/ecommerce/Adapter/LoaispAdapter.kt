@@ -8,24 +8,25 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.TextView
+import com.example.ecommerce.Adapter.LoaispAdapter.ViewHoldel
 import com.example.ecommerce.Data.Loaisp
 import com.squareup.picasso.Picasso
 import com.example.ecommerce.R
 
-class LoaispAdapter {
+class LoaispAdapter : BaseAdapter() {
     val arrayListloaisp: ArrayList<Loaisp>? = null
     val context: Context? = null
 
 
-   override  fun getCount(): Int {
+    override fun getCount(): Int {
         return arrayListloaisp!!.size
     }
 
-    override  fun getItem(position: Int): Any {
+    override fun getItem(position: Int): Any {
         return arrayListloaisp!![position]
     }
 
-    override  fun getItemId(position: Int): Long {
+    override fun getItemId(position: Int): Long {
         return position.toLong()
     }
 
@@ -39,7 +40,8 @@ class LoaispAdapter {
         var viewHoldel: ViewHoldel? = null
         if (convertView == null) {
             viewHoldel = ViewHoldel()
-            val inflater = context!!.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+            val inflater =
+                context!!.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
             convertView = inflater.inflate(R.layout.dong_listview_loaisp, null)
             viewHoldel.txttenloaisanpham = convertView!!.findViewById<TextView>(R.id.tvloaisanpham)
             viewHoldel.imgloaisanpham = convertView!!.findViewById<ImageView>(R.id.imloaisp)

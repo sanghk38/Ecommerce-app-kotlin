@@ -23,48 +23,49 @@ class RegisterActivity : AppCompatActivity() {
         setContentView(R.layout.activity_register)
         name = "".also { checkpass = it }.also { password = it }.also { email = it }
     }
-        fun save(view: View)  {
-            var email = edEmail.text.toString().trim()
-            var password = edPassword.text.toString().trim()
-            var name = edName.text.toString().trim()
-            var checkpass = edCheckPass.text.toString().trim()
-//            name = "".also { checkpass = it }.also { password = it }.also { email = it }
-            if (!password.equals(checkpass)) {
-                Toast.makeText(this, "The password you entered is incorrect", Toast.LENGTH_LONG)
-                    .show()
 
-            } else if (!name.equals("") && !email.equals("") && !password.equals("")) {
-                val sr: StringRequest = object :
-                    StringRequest(Method.POST, Server.signup, Response.Listener { response ->
-                        if (response.equals("success")) {
-                            tvStatus.text = "You have successfully registered"
-                            bntRegister.setOnClickListener(View.OnClickListener {
-                                intent = Intent(this@RegisterActivity, HomeActivity::class.java)
-                                startActivity(intent)
-                            })
-                        } else if (response.equals("failure")) {
-                            tvStatus.text = "Can't be left blank"
-                        }
-                    }, Response.ErrorListener { error ->
-                        Toast.makeText(
-                            applicationContext,
-                            error.toString().trim(),
-                            Toast.LENGTH_LONG
-                        ).show()
-                    }) {
-                    @Throws(AuthFailureError::class)
-                    override fun getParams(): Map<String, String>? {
-                        val data: MutableMap<String, String> = HashMap()
-                        data["name"] = name
-                        data["email"] = email
-                        data["password"] = password
-                        return data
+    fun save(view: View) {
+        var email = edEmail.text.toString().trim()
+        var password = edPassword.text.toString().trim()
+        var name = edName.text.toString().trim()
+        var checkpass = edCheckPass.text.toString().trim()
+//            name = "".also { checkpass = it }.also { password = it }.also { email = it }
+        if (!password.equals(checkpass)) {
+            Toast.makeText(this, "The password you entered is incorrect", Toast.LENGTH_LONG)
+                .show()
+
+        } else if (!name.equals("") && !email.equals("") && !password.equals("")) {
+            val sr: StringRequest = object :
+                StringRequest(Method.POST, Server.signup, Response.Listener { response ->
+                    if (response.equals("success")) {
+                        tvStatus.text = "You have successfully registered"
+                        bntRegister.setOnClickListener(View.OnClickListener {
+                            intent = Intent(this@RegisterActivity, HomeActivity::class.java)
+                            startActivity(intent)
+                        })
+                    } else if (response.equals("failure")) {
+                        tvStatus.text = "Can't be left blank"
                     }
+                }, Response.ErrorListener { error ->
+                    Toast.makeText(
+                        applicationContext,
+                        error.toString().trim(),
+                        Toast.LENGTH_LONG
+                    ).show()
+                }) {
+                @Throws(AuthFailureError::class)
+                override fun getParams(): Map<String, String>? {
+                    val data: MutableMap<String, String> = HashMap()
+                    data["name"] = name
+                    data["email"] = email
+                    data["password"] = password
+                    return data
                 }
-                val requestQueue = Volley.newRequestQueue(applicationContext)
-                requestQueue.add<String>(sr)
             }
+            val requestQueue = Volley.newRequestQueue(applicationContext)
+            requestQueue.add<String>(sr)
         }
+    }
 
 
     fun login(view: View) {
