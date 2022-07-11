@@ -34,13 +34,23 @@
         app:layout_constraintTop_toBottomOf="@+id/textView2"
         >
 
+        <TextView
+            android:id="@+id/tvEmail"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Email"
+            android:textStyle="bold"
+            android:textSize="11dp"
+            android:layout_marginStart="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
         <EditText
             android:id="@+id/edEmail"
             android:layout_marginStart="20dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:textSize="14dp"
-            android:hint="Email"
+            android:hint="abc@gmail.com"
             android:inputType="textEmailAddress"
 
             />
@@ -54,6 +64,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ctr1">
 
+        <TextView
+            android:id="@+id/tvPassword"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Password"
+            android:textStyle="bold"
+            android:textSize="11dp"
+            android:layout_marginStart="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
         <EditText
             android:id="@+id/edPassword"
             android:layout_marginStart="20dp"
