@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.android.volley.toolbox.JsonArrayRequest
 import com.android.volley.toolbox.Volley
 import com.example.ecommerce.Adapter.SanphamAdapter
+import com.example.ecommerce.Model.GioHang
 import com.example.ecommerce.Model.SanPham
 import com.example.ecommerce.R
 import com.example.ecommerce.connect.Checkconnect
@@ -17,12 +18,17 @@ import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_home.*
 import org.json.JSONException
 import java.util.*
+import kotlin.collections.ArrayList
 
 class HomeActivity : AppCompatActivity() {
     var mangsanpham =  ArrayList<SanPham>()
     var limitdata = false
     var sanphamAdapter: SanphamAdapter? = null
 
+
+    companion object {
+        var manggiohang: ArrayList<GioHang> = ArrayList<GioHang>()
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
