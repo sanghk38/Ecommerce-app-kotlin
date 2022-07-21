@@ -1,5 +1,6 @@
 package com.example.ecommerce.Activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.animation.AnimationUtils
@@ -14,6 +15,7 @@ import com.example.ecommerce.Model.SanPham
 import com.example.ecommerce.R
 import com.example.ecommerce.connect.Checkconnect
 import com.example.ecommerce.connect.Server
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_home.*
 import org.json.JSONException
@@ -24,8 +26,7 @@ class HomeActivity : AppCompatActivity() {
     var mangsanpham =  ArrayList<SanPham>()
     var limitdata = false
     var sanphamAdapter: SanphamAdapter? = null
-
-
+    private var ahBotNavHome: BottomNavigationView? = null
     companion object {
         var manggiohang: ArrayList<GioHang> = ArrayList<GioHang>()
     }
@@ -41,6 +42,7 @@ class HomeActivity : AppCompatActivity() {
         rcv_new.adapter = sanphamAdapter
         ActionViewFilipper()
         GetDuLieuSPMoiNhat1()
+        initItem()
     }
 
     private fun GetDuLieuSPMoiNhat1() {
@@ -102,6 +104,38 @@ class HomeActivity : AppCompatActivity() {
         )
         imageSlider.setInAnimation(animation_in)
         imageSlider.setOutAnimation(animation_out)
+    }
+    private val navgation = BottomNavigationView.OnNavigationItemSelectedListener { item ->
+        val i: Intent
+        when (item.itemId) {
+            R.id.home -> {
+                i = Intent(this@HomeActivity, HomeActivity::class.java)
+                startActivity(i)
+            }
+            R.id.shop -> {
+//                i = Intent(this@Giohangactivity, MenActivity::class.java)
+//                startActivity(i)
+            }
+            R.id.bag -> {
+                i = Intent(this@HomeActivity, Giohangactivity::class.java)
+                startActivity(i)
+            }
+            R.id.favorite -> {
+//                i = Intent(this@Giohangactivity, FavoriteActivity::class.java)
+//                startActivity(i)
+            }
+            R.id.profile -> {
+//                i = Intent(this@Giohangactivity, ProfileActivity::class.java)
+//                startActivity(i)
+            }
+        }
+        true
+    }
+
+    private fun initItem() {
+        ahBotNavHome = findViewById(R.id.ahbotnav_home)
+        ahBotNavHome!!.setSelectedItemId(R.id.home)
+        ahBotNavHome!!.setOnNavigationItemSelectedListener(navgation)
     }
 
 }

@@ -139,11 +139,9 @@
             <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
-
                     <TextView
                         android:id="@+id/tvmotachitietsanpham"
                         android:layout_width="match_parent"
@@ -153,13 +151,9 @@
                         android:textColor="#a19c9d"
                         android:textSize="20dp"
                         tools:text="Loa mini bluetooth-led nháy theo nhạc được đa số người dùng ưa chuộng bởi tính di động tuyệt vời, cùng với thiết kết. Với công nghệ kết nối bằng Bluetooth giúp bạn thoải mái nghe nhạc di động mọi nơi mà không phải bị đau tai khi mang tai phone hay vướng víu bởi dây kết nối" />
-
                 </androidx.constraintlayout.widget.ConstraintLayout>
-
-
             </ScrollView>
         </LinearLayout>
-
         <LinearLayout
             android:id="@+id/linearLayout2"
             android:layout_width="match_parent"
