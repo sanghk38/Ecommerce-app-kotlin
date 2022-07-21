@@ -5,16 +5,10 @@ package com.example.ecommerce.Model
     var tensp: String? = null
     var giasp: Long = 0
     var hinhanhsp: String? = null
-    var size: Int? = null
+    var size: String? = null
     var soluongsp = 0
 
-    constructor(
-        idsp: Int,
-        tensp: String?,
-        giasp: Long,
-        hinhanhsp: String?,
-        size: Int,
-        soluongsp: Int
+    constructor(idsp: Int, tensp: String?, giasp: Long, hinhanhsp: String?, soluongsp: Int,size: String,
     ) {
         this.idsp = idsp
         this.tensp = tensp
